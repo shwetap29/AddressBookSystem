@@ -104,5 +104,4 @@ public class Contacts{
                 ", email='" + email + '\'' +
                 '}';
     }
-
 }
