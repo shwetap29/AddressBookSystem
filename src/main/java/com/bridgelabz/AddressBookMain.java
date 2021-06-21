@@ -65,7 +65,6 @@ public class AddressBookMain {
     }
 
 
-
     // method to view person by city
     public static void viewContactByCityOrState(String city) {
         List<Contact> list = new ArrayList<>();
@@ -97,6 +96,26 @@ public class AddressBookMain {
                 .forEach(contact -> System.out.println(contact.getFirstName()+" "+contact.getLastName()));
     }
 
+    // method to sort entries by zip
+    public static void sortByZip() {
+        List<Contact> list = new ArrayList<>();
+        for(Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
+            list = entries.getValue().getAddressBook().stream().collect(Collectors.toList());
+        }
+        list.stream().sorted((p1, p2) -> ((String)p1.getZip()).compareTo(p2.getZip()))
+                .forEach(contact -> System.out.println(contact.getFirstName()+" "+contact.getLastName()));
+    }
+
+
+    // method to sort entries by city
+    public static void sortByCity() {
+        List<Contact> list = new ArrayList<>();
+        for(Map.Entry<String, AddressBook> entries : addressBookHashMap.entrySet()) {
+            list = entries.getValue().getAddressBook().stream().collect(Collectors.toList());
+        }
+        list.stream().sorted((p1, p2) -> ((String)p1.getCity()).compareTo(p2.getCity()))
+                .forEach(contact -> System.out.println(contact.getFirstName()+" "+contact.getLastName()));
+    }
 
 
     // MAIN METHOD
