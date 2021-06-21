@@ -1,55 +1,33 @@
 package com.bridgelabz;
 
-public class Contacts extends ContactDetails {
-    //variable declaration
-    private String firstName;
-    private String lastName;
+public class Contacts{
+    private String fName;
+    private String lName;
     private String address;
     private String city;
     private String state;
     private Long zip;
-    private Long phoneNumber;
-    private String emailId;
+    private Long phone;
+    private String email;
 
-    public Contacts(String firstName, String lastName, String address, String city, String state, Long zipCode, Long phoneNumber, String email) {
-        super();
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Contacts(String fName, String lName, String address, String city, String state, Long zip, Long phone,
+                    String email) {
+        this.fName = fName;
+        this.lName = lName;
         this.address = address;
         this.city = city;
         this.state = state;
-        this.zip = zipCode;
-        this.phoneNumber = phoneNumber;
-        this.emailId = email;
+        this.zip = zip;
+        this.phone = phone;
+        this.email = email;
     }
 
-    public Contacts() {
-
+    public String getfName() {
+        return fName;
     }
 
-    //getters and setters
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setfName(String fName) {
+        this.fName = fName;
     }
 
     public String getCity() {
@@ -68,42 +46,63 @@ public class Contacts extends ContactDetails {
         this.state = state;
     }
 
+    public String getlName() {
+        return lName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     public Long getZip() {
         return zip;
     }
 
-    public void setZip(Long zip) {
-        this.zip = zip;
+    public Long getPhone() {
+        return phone;
     }
 
-    public Long getPhoneNumber() {
-        return phoneNumber;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Contacts))
+            return false;
 
-    public String getEmailId() {
-        return emailId;
+        Contacts other = (Contacts) obj;
+        if (!(fName.equalsIgnoreCase(other.getfName())))
+            return false;
+        if (!(lName.equalsIgnoreCase(other.getlName())))
+            return false;
+        if (!(address.equalsIgnoreCase(other.getAddress())))
+            return false;
+        if (!(city.equalsIgnoreCase(other.getCity())))
+            return false;
+        if (!state.equalsIgnoreCase(other.getState()))
+            return false;
+        if (!zip.equals(other.getZip()))
+            return false;
+        if (!(phone.equals(other.getPhone())))
+            return false;
+        return email.equals(other.getEmail());
     }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
 
     @Override
     public String toString() {
-        return "ContactDetails{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+        return "Contacts{" +
+                "fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zip=" + zip +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", emailId='" + emailId + '\'' +
+                ", phone=" + phone +
+                ", email='" + email + '\'' +
                 '}';
     }
+
 }
