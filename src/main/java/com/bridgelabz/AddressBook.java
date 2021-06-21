@@ -6,7 +6,7 @@ public class AddressBook {
     ContactDetails person;
     Scanner sc = new Scanner(System.in);
 
-    public void addDetails(){
+    public void addDetails() {
         person = new ContactDetails();
 
         System.out.println("Enter First Name: ");
@@ -38,6 +38,8 @@ public class AddressBook {
         person.setEmail(email);
 
     }
+
+    // Edit The contact
     public void editContact() {
         System.out.println("Enter the firstName of person");
         String editName = sc.nextLine();
@@ -47,6 +49,16 @@ public class AddressBook {
             System.out.println("The name does not match the AddressBook");
             System.out.println("Please enter valid First Name");
             editContact();
+        }
+    }
+
+    //method To Delete The contact
+    public void delete() {
+        System.out.println("Enter firstName of the person");
+        String editName = sc.nextLine();
+        if (editName.equals(person.firstName)) {
+            System.out.println("Deleted " + person.firstName + " details");
+            person = null;
         }
     }
 }
