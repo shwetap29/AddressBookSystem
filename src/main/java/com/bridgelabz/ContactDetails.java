@@ -3,16 +3,15 @@ package com.bridgelabz;
 public class ContactDetails {
 
     //declaring contact details variables
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String city;
-    private String state;
-    private Long zipCode;
-    private Long phoneNumber;
-    private String emailId;
+     String firstName;
+     String lastName;
+     String address;
+     String city;
+     String state;
+     Long zipCode;
+     Long phoneNumber;
+     String emailId;
 
-    // access private fields using getters and setters
 
     public String getFirstName() {
         return firstName;
@@ -79,19 +78,17 @@ public class ContactDetails {
     }
 
     //Overridden Java toString method
-
-
     @Override
     public String toString() {
-        return "ContactDetails{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip=" + zipCode +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + emailId + '\'' +
+        return "Address Book Contact Details = {" +
+                "First Name='" + firstName + '\'' +
+                ", Last Name='" + lastName + '\'' +
+                ", Address='" + address + '\'' +
+                ", City='" + city + '\'' +
+                ", State='" + state + '\'' +
+                ", Zip=" + zipCode +
+                ", Phone Number='" + phoneNumber + '\'' +
+                ", Email='" + emailId + '\'' +
                 '}';
     }
 }
