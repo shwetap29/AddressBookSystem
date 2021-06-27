@@ -25,20 +25,20 @@ public class AddressBook {
         stateHashMap.put(contact.getState(),contact);
         return true;
     }
-    //method for search contact by name
+    //method for searching contact by name
     public static List<Contacts> searchByName(String name) {//collection list of element
         //stream and lambda for find filter given name from arraylist
         return contactList.stream().filter(person -> person.getfName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    //method for search contact by City
+    //method for searching contact by City
     public static List<Contacts> searchByCity(String city) {
         return contactList.stream().filter(person -> person.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
     }
-    //method for search contact by State
+    //method for searching contact by State
     public static List<Contacts> searchByState(String state) {
         return contactList.stream().filter(person -> person.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
     }
-    //method for view contact by name
+    //method for viewing contact by name
     public static void viewByName(Map<String, Contacts> nameHashMap) {
         nameHashMap.entrySet().stream().forEach(e -> System.out.println(e.getKey() + "="+ e.getValue().toString()));
     }

@@ -46,6 +46,7 @@ public class AddressBookFileIO {
                 //first part is name, second is age
                 String bookName = parts[0].trim();
                 String fname = parts[1].trim();
+<<<<<<< HEAD
 /*
                 String fName = parts[2].trim();
                 String lName=parts2[1].trim();//parts[2].trim();
@@ -56,6 +57,8 @@ public class AddressBookFileIO {
                 Long phone= Long.parseLong(parts[7].trim());
                 String email=parts[8].trim();
 */
+=======
+>>>>>>> UC13_R/WUsingF/IO
                 mapFileContents.put(bookName, fname);
             }
         } catch (Exception e) {
