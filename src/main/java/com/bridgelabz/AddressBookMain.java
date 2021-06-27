@@ -6,7 +6,7 @@ import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 public class AddressBookMain {
     public static void main(String[] args) {
@@ -26,7 +26,9 @@ public class AddressBookMain {
             System.out.println("8. Read data from text File");
             System.out.println("9. Write data into CSV File");
             System.out.println("10. Read data from CSV File");
-            System.out.println("11. Exit");
+            System.out.println("11. Write data into JSON File");
+            System.out.println("12. Read data from JSON File");
+            System.out.println("13. Exit");
             System.out.print("Enter Your choice: ");
             int choice = sc.nextInt();
             sc.nextLine();
@@ -37,12 +39,13 @@ public class AddressBookMain {
                     sc.nextLine();
                     //adding bookName as a key and value is allocating memory for addressBook obj
                     addressBookMap.put(bookName, new AddressBook());//adding bookname as a key and vlue is allocating memory for addressbook obj
+                    //call addressBook option method with passing key of hashmap
                     addressBook.addressBookOptions(addressBookMap.get(bookName));//call addressbook option method with passing key of hashmap
                     break;
                 case 2:
                     System.out.println("List of available Address Book : ");
-
-                    Set keys = addressBookMap.keySet();//retreived keys from hashmap to show addressbooklist
+                    //retrieved keys from hashmap to show addressBookList
+                    Set keys = addressBookMap.keySet(); //retreived keys from hashmap to show addressbooklist
                     Iterator i = keys.iterator();
                     while (i.hasNext()) {
                         System.out.println(i.next());
@@ -50,6 +53,7 @@ public class AddressBookMain {
                     System.out.println("Enter Address Book name you want to Open : ");
                     String name = sc.nextLine();
                     System.out.println("Current Address Book is : " + name);
+                    //call method with passing address book name
                     addressBook.addressBookOptions(addressBookMap.get(name));//call method with passing address book name
                     break;
                 case 3:
@@ -72,7 +76,7 @@ public class AddressBookMain {
                     addressBook.viewByOption(addressBookMap);
                     break;
                 case 6:
-                    System.out.println("Welcome to the couter");
+                    System.out.println();
                     addressBook.countByOption();
                     break;
                 case 7:
@@ -98,10 +102,11 @@ public class AddressBookMain {
                     }
                     break;
                 case 11:
-                    sc.close();//for closing the Scanner Class
-                    return;
-                default:
-                    System.out.println("You Entered Invalid Choice....!");
+                    try {
+                        AddressBookJSON.writeDataToJSon();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case 12:
                     try {
