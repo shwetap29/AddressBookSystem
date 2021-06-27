@@ -69,27 +69,43 @@ public class Contact {
         this.email = email;
     }
 
-
-    //Overriding equals method to compare Contact objects
     @Override
     public boolean equals(Object obj) {
-        boolean result = false;
-
-        // If the object is compared with itself then returns true
-        if(obj == this) {
+        if (this == obj)
             return true;
-        }
-        Contact contact = (Contact)obj; // typecast obj to Contact so that we can compare data members
-        //Compare data members and return accordingly
-        if(contact.firstName.equals(this.firstName) && contact.lastName.equals(this.lastName)) {
-            result = true;
-        }
-        return result;
+        if (!(obj instanceof Contact))
+            return false;
+
+        Contact other = (Contact) obj;
+        if (!(firstName.equalsIgnoreCase(other.getFirstName())))
+            return false;
+        if (!(lastName.equalsIgnoreCase(other.getLastName())))
+            return false;
+        if (!(address.equalsIgnoreCase(other.getAddress())))
+            return false;
+        if (!(city.equalsIgnoreCase(other.getCity())))
+            return false;
+        if (!state.equalsIgnoreCase(other.getState()))
+            return false;
+        if (!zip.equals(other.getZip()))
+            return false;
+        if (!(phoneNumber.equals(other.getPhoneNumber())))
+            return false;
+        return email.equals(other.getEmail());
     }
 
     @Override
     public String toString() {
-        return this.getFirstName() + " " + this.getLastName() + " " + this.getAddress() + " " + this.getPhoneNumber() + " " + this.getEmail();
+        return "Contacts{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip=" + zip +
+                ", phone=" + phoneNumber +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
 

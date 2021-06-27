@@ -1,8 +1,5 @@
 package com.bridgelabz;
 
-
-
-
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.bean.StatefulBeanToCsv;
@@ -16,21 +13,19 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.bridgelabz.AddressBook.contactList;
-
 public class AddressBookCSV {
     public static void writeDataToCSV() throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
         try (Writer writer = Files.newBufferedWriter(Paths.get("Contacts.csv"));) {
-            StatefulBeanToCsvBuilder<Contacts> builder = new StatefulBeanToCsvBuilder<>(writer);
-            StatefulBeanToCsv<Contacts> beanWriter = builder.build();
-            beanWriter.write(contactList);
+            StatefulBeanToCsvBuilder<Contact> builder = new StatefulBeanToCsvBuilder<>(writer);
+            StatefulBeanToCsv<Contact> beanWriter = builder.build();
+            beanWriter.write(AddressBook.contactList);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void readDataFromCSV() throws IOException {
+    public static <CsvValidationException extends Throwable> void readDataFromCSV() throws IOException, CsvValidationException {
         try (Reader reader = Files.newBufferedReader(Paths.get("Contacts.csv"));
              CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();){
             String[] nextRecord;
@@ -44,8 +39,6 @@ public class AddressBookCSV {
                 System.out.println("Phone Number = " + nextRecord[5]);
                 System.out.println("Zip Code = " + nextRecord[7]);
             }
-        } catch (CsvValidationException e) {
-            e.printStackTrace();
         }
     }
 }

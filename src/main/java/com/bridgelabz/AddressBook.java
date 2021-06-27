@@ -13,7 +13,7 @@ public class AddressBook {
     static Scanner sc = new Scanner(System.in);
     static AddressBook addressBook = new AddressBook();
 
-    public static boolean   addContact(Contacts contact) {
+    public static boolean addContact(Contacts contact) {
         List<Contacts> checkByName = searchByName(contact.getfName());
         for (Contacts equalName : checkByName) {
             if (equalName.equals(contact))
