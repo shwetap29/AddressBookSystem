@@ -1,12 +1,22 @@
 com/bridgelabz/Contacts.java
  com.bridgelabz.Contacts
+<<<<<<< HEAD
 com/bridgelabz/ContactDetails.java
  com.bridgelabz.ContactDetails
+=======
+com/bridgelabz/AddressBookJSON.java
+ com.bridgelabz.AddressBookJSON
+>>>>>>> UC15_Read/Write/OpenJSON
 com/bridgelabz/AddressBook.java
  com.bridgelabz.AddressBook
 com/bridgelabz/AddressBookFileIO.java
  com.bridgelabz.AddressBookFileIO
 com/bridgelabz/AddressBookMain.java
  com.bridgelabz.AddressBookMain
+<<<<<<< HEAD
 com/bridgelabz/Contact.java
  com.bridgelabz.Contact
+=======
+com/bridgelabz/AddressBookCSV.java
+ com.bridgelabz.AddressBookCSV
+>>>>>>> UC15_Read/Write/OpenJSON

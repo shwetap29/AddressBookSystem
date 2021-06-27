@@ -28,10 +28,14 @@ public class AddressBookCSV {
         }
     }
 
+<<<<<<< HEAD
         // Read Data from CSV
+=======
+    // Read Data from CSV
+>>>>>>> UC15_Read/Write/OpenJSON
     public static void readDataFromCSV() throws IOException {
         try (Reader reader = Files.newBufferedReader(Paths.get("Contacts.csv"));
-             CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();){
+             CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();) {
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
                 System.out.println("First Name = " + nextRecord[3]);
@@ -46,3 +50,4 @@ public class AddressBookCSV {
         }
     }
 }
+

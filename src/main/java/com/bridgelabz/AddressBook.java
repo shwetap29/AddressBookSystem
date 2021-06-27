@@ -161,7 +161,7 @@ public class AddressBook {
                         int index = sc.nextInt();
                         sc.nextLine();
                         deleteContact(equalName.get(index));
-                        System.out.println("Cotact data deleted....!");
+                        System.out.println("Contact data deleted....!");
                     }
                     break;
                 case 4:

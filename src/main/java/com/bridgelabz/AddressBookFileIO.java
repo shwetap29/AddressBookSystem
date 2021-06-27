@@ -48,6 +48,7 @@ public class AddressBookFileIO {
                 String fname = parts[1].trim();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
                 String fName = parts[2].trim();
                 String lName=parts2[1].trim();//parts[2].trim();
@@ -62,6 +63,9 @@ public class AddressBookFileIO {
 >>>>>>> UC13_R/WUsingF/IO
 =======
 >>>>>>> UC14_Read/Write/openCSV
+=======
+
+>>>>>>> UC15_Read/Write/OpenJSON
                 mapFileContents.put(bookName, fname);
             }
         } catch (Exception e) {
