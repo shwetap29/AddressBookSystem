@@ -44,21 +44,10 @@ public class AddressBookFileIO {
 
                 //split the line by :
                 String[] parts = line.split(":");
-                //            String[] parts2 = line2.split(",");
-                //  System.out.println(parts.);
 
                 //first part is name, second is age
                 String bookName = parts[0].trim();
                 String fname = parts[1].trim();
-//                String fName = parts[2].trim();
-                //              String lName=parts2[1].trim();//parts[2].trim();
-                //            String address=parts[3].trim();
-                //          String city=parts[4].trim();
-                //        String state=parts[5].trim();
-                //      Long zip = Long.parseLong(parts[6].trim());
-                //    Long phone= Long.parseLong(parts[7].trim());
-                //  String email=parts[8].trim();
-
                 mapFileContents.put(bookName, fname);
             }
 
