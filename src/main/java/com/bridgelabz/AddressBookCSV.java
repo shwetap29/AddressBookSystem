@@ -13,19 +13,21 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static com.bridgelabz.AddressBook.contactList;
+import static com.bridgelabz.AddressBook.*;
 
 public class AddressBookCSV {
     public static void writeDataToCSV() throws IOException, CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
+
         try (Writer writer = Files.newBufferedWriter(Paths.get("Contacts.csv"));) {
-            StatefulBeanToCsvBuilder<Contacts> builder = new StatefulBeanToCsvBuilder<>(writer);
-            StatefulBeanToCsv<Contacts> beanWriter = builder.build();
+            StatefulBeanToCsvBuilder<Contact> builder = new StatefulBeanToCsvBuilder<>(writer);
+            StatefulBeanToCsv<Contact> beanWriter = builder.build();
             beanWriter.write(contactList);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
         // Read Data from CSV
     public static void readDataFromCSV() throws IOException {
         try (Reader reader = Files.newBufferedReader(Paths.get("Contacts.csv"));
@@ -41,8 +43,6 @@ public class AddressBookCSV {
                 System.out.println("Phone Number = " + nextRecord[5]);
                 System.out.println("Zip Code = " + nextRecord[7]);
             }
-        } catch (CsvValidationException e) {
-            e.printStackTrace();
         }
     }
 }

@@ -74,9 +74,15 @@ public class Contact {
             return false;
 
         Contact other = (Contact) obj;
+<<<<<<< HEAD
         if (!(fName.equalsIgnoreCase(other.getfName())))
             return false;
         if (!(lName.equalsIgnoreCase(other.getlName())))
+=======
+        if (!(firstName.equalsIgnoreCase(other.getFirstName())))
+            return false;
+        if (!(lastName.equalsIgnoreCase(other.getLastName())))
+>>>>>>> UC14_Read/Write/openCSV
             return false;
         if (!(address.equalsIgnoreCase(other.getAddress())))
             return false;
@@ -86,7 +92,11 @@ public class Contact {
             return false;
         if (!zip.equals(other.getZip()))
             return false;
+<<<<<<< HEAD
         if (!(phone.equals(other.getPhone())))
+=======
+        if (!(phoneNumber.equals(other.getPhoneNumber())))
+>>>>>>> UC14_Read/Write/openCSV
             return false;
         return email.equals(other.getEmail());
     }
@@ -94,13 +104,22 @@ public class Contact {
     @Override
     public String toString() {
         return "Contacts{" +
+<<<<<<< HEAD
                 "fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
+=======
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+>>>>>>> UC14_Read/Write/openCSV
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zip=" + zip +
+<<<<<<< HEAD
                 ", phone=" + phone +
+=======
+                ", phone=" + phoneNumber +
+>>>>>>> UC14_Read/Write/openCSV
                 ", email='" + email + '\'' +
                 '}';
     }
