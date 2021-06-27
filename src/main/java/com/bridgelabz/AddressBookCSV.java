@@ -1,8 +1,5 @@
 package com.bridgelabz;
 
-
-
-
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.bean.StatefulBeanToCsv;
@@ -29,7 +26,7 @@ public class AddressBookCSV {
             e.printStackTrace();
         }
     }
-
+        // Read Data from CSV
     public static void readDataFromCSV() throws IOException {
         try (Reader reader = Files.newBufferedReader(Paths.get("Contacts.csv"));
              CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();){

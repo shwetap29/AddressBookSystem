@@ -12,7 +12,7 @@ public class AddressBookMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         AddressBook addressBook = new AddressBook();
-        Map<String, AddressBook> addressBookMap = new HashMap<String,AddressBook>();
+        Map<String, AddressBook> addressBookMap = new HashMap<String, AddressBook>();
 
         while (true) {
             System.out.println("\n--------------------------Welcome to Address Book System--------------------------");
@@ -35,14 +35,16 @@ public class AddressBookMain {
                     System.out.println("Enter Name of new Address Book: ");
                     String bookName = sc.next();
                     sc.nextLine();
+                    //adding bookName as a key and value is allocating memory for addressBook obj
                     addressBookMap.put(bookName, new AddressBook());//adding bookname as a key and vlue is allocating memory for addressbook obj
                     addressBook.addressBookOptions(addressBookMap.get(bookName));//call addressbook option method with passing key of hashmap
                     break;
                 case 2:
                     System.out.println("List of available Address Book : ");
-                    Set keys = addressBookMap.keySet();//retrived keys from hashmap to show addressbooklist
+
+                    Set keys = addressBookMap.keySet();//retreived keys from hashmap to show addressbooklist
                     Iterator i = keys.iterator();
-                    while (i.hasNext()){
+                    while (i.hasNext()) {
                         System.out.println(i.next());
                     }
                     System.out.println("Enter Address Book name you want to Open : ");
@@ -52,9 +54,9 @@ public class AddressBookMain {
                     break;
                 case 3:
                     System.out.println("List of available Address Book : ");
-                    Set keys1 = addressBookMap.keySet();//retrived keys from hashmap to show addressbooklist
+                    Set keys1 = addressBookMap.keySet();//retreived keys from hashmap to show addressbooklist
                     Iterator i1 = keys1.iterator();
-                    while (i1.hasNext()){
+                    while (i1.hasNext()) {
                         System.out.println(i1.next());
                     }
                     System.out.println("Enter Address Book name to be delete: ");
@@ -84,14 +86,14 @@ public class AddressBookMain {
                 case 9:
                     try {
                         AddressBookCSV.writeDataToCSV();
-                    }catch (IOException | CsvRequiredFieldEmptyException | CsvDataTypeMismatchException e) {
+                    } catch (IOException | CsvRequiredFieldEmptyException | CsvDataTypeMismatchException e) {
                         e.printStackTrace();
                     }
                     break;
                 case 10:
                     try {
                         AddressBookCSV.readDataFromCSV();
-                    }catch (IOException e) {
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                     break;
@@ -100,6 +102,19 @@ public class AddressBookMain {
                     return;
                 default:
                     System.out.println("You Entered Invalid Choice....!");
+                    break;
+                case 12:
+                    try {
+                        AddressBookJSON.readDataFromJson();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 13:
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Enter a Valid Choice...!");
                     break;
             }
         }
